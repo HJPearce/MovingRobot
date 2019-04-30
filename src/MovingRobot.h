@@ -11,13 +11,13 @@ class MovingRobot {
 public:
 	MovingRobot();
 	void Begin();
-	void turn(int angle, float set_point);
+	void turn(int angle, float set_point, byte set_speed);
 	void moveForward(int set_speed);
 	void brake();
 	float get_heading();
 	void general_move(bool L_motor_direction, bool R_motor_direction, int set_speed);
 private:
-	void turnTo(int heading);
+	void turnTo(int heading, byte set_speed);
 	MAG3110 magnetometer = MAG3110();
 	byte R_MOTOR_DIR_PIN;
 	byte R_MOTOR_SPEED_PIN;
