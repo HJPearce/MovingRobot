@@ -20,7 +20,8 @@ brake	KEYWORD2
 initialisePins	KEYWORD2
 sign	KEYWORD2
 signmod180	KEYWORD2
-
+general_move KEYWORD2
+get_heading KEYWORD2
 #######################################
 # Constants (LITERAL1)
 #######################################
