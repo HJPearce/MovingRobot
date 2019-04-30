@@ -23,7 +23,7 @@ private:
 	byte R_MOTOR_SPEED_PIN;
 	byte L_MOTOR_DIR_PIN;
 	byte L_MOTOR_SPEED_PIN;
-}
+};
 int sign(float value);
 int sign(int value);
 float signmod180(float value);
