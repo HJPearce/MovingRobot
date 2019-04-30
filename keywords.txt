@@ -1,0 +1,26 @@
+#######################################
+# Syntax Coloring Map For MovingRobot
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+MovingRobot	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+Begin	KEYWORD2
+turn	KEYWORD2
+setPins	KEYWORD2
+moveForward	KEYWORD2
+brake	KEYWORD2
+initialisePins	KEYWORD2
+sign	KEYWORD2
+signmod180	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
