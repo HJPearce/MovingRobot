@@ -87,7 +87,7 @@ void MovingRobot::turnTo(int angle, byte set_speed) {
 
 void MovingRobot::turn(int angle, float setpoint = 0, byte set_speed = 150) {
 	if (!setpoint) setpoint = get_heading();
-	int new_setpoint = signmod180(set_point + angle);
+	int new_setpoint = signmod180(setpoint + angle);
 	new_setpoint;
 	turnTo(new_setpoint, set_speed);
 }
