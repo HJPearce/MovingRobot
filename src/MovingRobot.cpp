@@ -99,8 +99,8 @@ MovingRobot::brake() {
 	digitalWrite(L_MOTOR_DIR_PIN, !digitalRead(L_MOTOR_DIR_PIN));
 	digitalWrite(R_MOTOR_DIR_PIN, !digitalRead(R_MOTOR_DIR_PIN));
 	delay(wait);
-	digitalWrite(L_MOTOR_SPEED_PIN, 0);
-	digitalWrite(R_MOTOR_SPEED_PIN, 0);
+	analogWrite(L_MOTOR_SPEED_PIN, 0);
+	analogWrite(R_MOTOR_SPEED_PIN, 0);
 	}
 
 MovingRobot::general_move(bool L_motor_direction, bool R_motor_direction, int set_speed) {
@@ -109,8 +109,8 @@ MovingRobot::general_move(bool L_motor_direction, bool R_motor_direction, int se
 	else digitalWrite(R_MOTOR_DIR_PIN, LOW);
 	if (L_motor_direction) digitalWrite(L_MOTOR_DIR_PIN, HIGH);
 	else digitalWrite(L_MOTOR_DIR_PIN, LOW);
-	digitalWrite(R_MOTOR_SPEED_PIN, set_speed);
-	digitalWrite(L_MOTOR_SPEED_PIN, set_speed);
+	analogWrite(R_MOTOR_SPEED_PIN, set_speed);
+	analogWrite(L_MOTOR_SPEED_PIN, set_speed);
 }
 
 MovingRobot::get_heading() {
