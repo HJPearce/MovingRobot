@@ -82,7 +82,7 @@ void MovingRobot::turnTo(int angle, byte set_speed) {
 		//stop it from freaking out
 		delay(3);
 	}
-	brake();
+	brake(set_speed);
 }
 
 void MovingRobot::turn(int angle, float setpoint = 0, byte set_speed = 150) {
