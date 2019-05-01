@@ -46,7 +46,7 @@ bool MAG3110::initialize() {
 	{
 		//Initial values
 		reset();
-		Serial.println('hey it worked')
+		Serial.println('hey it worked');
 		return true;
 	}
 }
