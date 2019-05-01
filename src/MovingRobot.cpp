@@ -44,9 +44,9 @@ Output order:
 	setPins(output_pins[0],output_pins[1],output_pins[2],output_pins[3]);
 	magnetometer.initialize();
 	magnetometer.setCalMode();
-	magnetometer.calibrate();
 	int start_pos = get_heading();
 	general_move(true, false, 255);
+	magnetometer.calibrate();
 	delay(50);
 	while (abs(start_pos - get_heading()) > 3) delay(5);
 	brake();
