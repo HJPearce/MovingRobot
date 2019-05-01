@@ -118,6 +118,5 @@ MovingRobot::get_heading() {
 		magnetometer.exitStandby();
 	}
 	magnetometer.triggerMeasurement();
-	while (!this -> magnetometer.dataReady()) delay(3);
 	return signmod180(magnetometer.readHeading());
 }
