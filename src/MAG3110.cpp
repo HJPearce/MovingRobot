@@ -18,7 +18,7 @@ Distributed as-is; no warranty is given.
 ******************************************************************************/
 
 #include "Arduino.h"
-#include "SparkFun_MAG3110.h"
+#include "MAG3110.h"
 #include <Wire.h>
 #include <math.h>
 
