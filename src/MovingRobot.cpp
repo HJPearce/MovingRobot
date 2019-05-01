@@ -32,7 +32,7 @@ void initialisePins(byte *pinList, byte mode) {
 
 MovingRobot::MovingRobot(){}
 
-void MovingRobot::setPins(byte left_motor_direction_pin, byte right_motor_direction_pin, byte left_motor_speed_pin, byte Right_motor_speed_pin){
+MovingRobot::setPins(byte left_motor_direction_pin, byte right_motor_direction_pin, byte left_motor_speed_pin, byte Right_motor_speed_pin){
 	L_MOTOR_DIR_PIN = left_motor_direction_pin;
 	L_MOTOR_SPEED_PIN = left_motor_speed_pin;
 	R_MOTOR_DIR_PIN = right_motor_direction_pin;
@@ -43,7 +43,7 @@ void MovingRobot::setPins(byte left_motor_direction_pin, byte right_motor_direct
 	pinMode(right_motor_speed_pin, OUTPUT);
 }
 
-void MovingRobot::Begin(){
+MovingRobot::Begin(){
 	/*
 Output order:
   L_MOTOR_DIR_PIN
