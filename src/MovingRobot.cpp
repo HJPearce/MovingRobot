@@ -45,6 +45,12 @@ Output order:
 	magnetometer.initialize();
 	magnetometer.setCalMode();
 	magnetometer.calibrate();
+	int start_pos = get_heading();
+	general_move(true, false, 255);
+	delay(50);
+	while (abs(start_pos - get_heading()) > 3) delay(5);
+	brake();
+	while (magnetometer.isCalibrating()) delay(3);
 }
 
 MovingRobot::setPins(byte left_motor_direction_pin, byte right_motor_direction_pin, byte left_motor_speed_pin, byte Right_motor_speed_pin){
