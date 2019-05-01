@@ -10,6 +10,7 @@
 class MovingRobot {
 public:
 	MovingRobot();
+	void setPins(byte, byte, byte, byte);
 	void Begin();
 	void turn(int angle, float set_point, byte set_speed);
 	void moveForward(byte set_speed);
