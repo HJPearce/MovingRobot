@@ -32,11 +32,11 @@ void initialisePins(byte *pinList, byte mode) {
 
 MovingRobot::MovingRobot(){}
 
-void MovingRobot::setPins(byte left_motor_direction_pin, byte right_motor_direction_pin, byte left_motor_speed_pin, byte Right_motor_speed_pin){
+void MovingRobot::setPins(byte left_motor_direction_pin, byte right_motor_direction_pin, byte left_motor_speed_pin, byte right_motor_speed_pin){
 	L_MOTOR_DIR_PIN = left_motor_direction_pin;
 	L_MOTOR_SPEED_PIN = left_motor_speed_pin;
 	R_MOTOR_DIR_PIN = right_motor_direction_pin;
-	R_MOTOR_SPEED_PIN right_motor_speed_pin;
+	R_MOTOR_SPEED_PIN = right_motor_speed_pin;
 	pinMode(left_motor_direction_pin, OUTPUT);
 	pinMode(left_motor_speed_pin, OUTPUT);
 	pinMode(right_motor_direction_pin, OUTPUT);
@@ -86,7 +86,7 @@ void MovingRobot::turnTo(int angle, byte set_speed) {
 }
 
 void MovingRobot::turn(int angle, float setpoint = 0, byte set_speed = 150) {
-	if (!setpoint) setpoint = get_heading()
+	if (!setpoint) setpoint = get_heading();
 	int new_setpoint = signmod180(set_point + angle);
 	new_setpoint;
 	turnTo(new_setpoint, set_speed);
@@ -115,7 +115,7 @@ void MovingRobot::general_move(bool L_motor_direction, bool R_motor_direction, b
 	analogWrite(L_MOTOR_SPEED_PIN, set_speed);
 }
 
-int MovingRobot::get_heading() {
+float MovingRobot::get_heading() {
 	if(!magnetometer.isActive()) magnetometer.start();
 	magnetometer.triggerMeasurement();
 	return signmod180(magnetometer.readHeading());
