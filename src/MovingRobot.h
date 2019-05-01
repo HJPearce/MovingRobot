@@ -14,7 +14,7 @@ public:
 	void Begin();
 	void turn(int angle, float set_point, byte set_speed);
 	void moveForward(byte set_speed);
-	void brake();
+	void brake(byte set_speed);
 	float get_heading();
 	void general_move(bool L_motor_direction, bool R_motor_direction, byte set_speed);
 private:
