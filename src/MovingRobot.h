@@ -12,10 +12,10 @@ public:
 	MovingRobot();
 	void Begin();
 	void turn(int angle, float set_point, byte set_speed);
-	void moveForward(int set_speed);
+	void moveForward(byte set_speed);
 	void brake();
 	float get_heading();
-	void general_move(bool L_motor_direction, bool R_motor_direction, int set_speed);
+	void general_move(bool L_motor_direction, bool R_motor_direction, byte set_speed);
 private:
 	void turnTo(int heading, byte set_speed);
 	MAG3110 magnetometer = MAG3110();
