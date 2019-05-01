@@ -51,7 +51,7 @@ Output order:
   R_MOTOR_DIR_PIN
   R_MOTOR_SPEED_PIN
  */
-	byte output_pins[] = { 11, 13, 10, 12};
+	byte output_pins[] = {12, 13, 10, 11};
 	setPins(output_pins[0],output_pins[1],output_pins[2],output_pins[3]);
 	magnetometer.initialize();
 	magnetometer.enterCalMode();
@@ -96,8 +96,8 @@ void MovingRobot::moveForward(byte set_speed) {
 	general_move(true, true, set_speed);
 }
 
-void MovingRobot::brake() {
-	int wait = 5; //If it under-turns look right here
+void MovingRobot::brake(byte set_speed) {
+	int wait = set_speed * 0.1; //If it under-turns look right here
 	digitalWrite(L_MOTOR_DIR_PIN, !digitalRead(L_MOTOR_DIR_PIN));
 	digitalWrite(R_MOTOR_DIR_PIN, !digitalRead(R_MOTOR_DIR_PIN));
 	delay(wait);
