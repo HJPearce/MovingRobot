@@ -32,7 +32,7 @@ void initialisePins(byte *pinList, byte mode) {
 
 MovingRobot::MovingRobot(){}
 
-MovingRobot::Begin(){
+void MovingRobot::Begin(){
 	/*
 Output order:
   L_MOTOR_DIR_PIN
@@ -53,7 +53,7 @@ Output order:
 	while (magnetometer.isCalibrating()) delay(3);
 }
 
-MovingRobot::setPins(byte left_motor_direction_pin, byte right_motor_direction_pin, byte left_motor_speed_pin, byte Right_motor_speed_pin){
+void MovingRobot::setPins(byte left_motor_direction_pin, byte right_motor_direction_pin, byte left_motor_speed_pin, byte Right_motor_speed_pin){
 	L_MOTOR_DIR_PIN = left_motor_direction_pin;
 	L_MOTOR_SPEED_PIN = left_motor_speed_pin;
 	R_MOTOR_DIR_PIN = right_motor_direction_pin;
@@ -64,7 +64,7 @@ MovingRobot::setPins(byte left_motor_direction_pin, byte right_motor_direction_p
 	pinMode(right_motor_speed_pin, OUTPUT);
 }
 
-MovingRobot::turnTo(int angle, byte set_speed) {
+void MovingRobot::turnTo(int angle, byte set_speed) {
 	const float SUCCESS_THRESHOLD = 2; //in degrees, just to make the change achievable
 
 	int turn_direction = sign(signmod180(get_heading() - angle));
@@ -84,17 +84,17 @@ MovingRobot::turnTo(int angle, byte set_speed) {
 	brake();
 }
 
-MovingRobot::turn(int angle, float setpoint = get_heading(), int set_speed = 150) {
+void MovingRobot::turn(int angle, float setpoint = get_heading(), int set_speed = 150) {
 	int new_setpoint = signmod180(set_point + angle);
 	new_setpoint;
 	turnTo(new_setpoint, set_speed);
 }
 
-MovingRobot::moveForward(int set_speed) {
+void MovingRobot::moveForward(int set_speed) {
 	general_move(true, true, set_speed);
 }
 
-MovingRobot::brake() {
+void MovingRobot::brake() {
 	int wait = 5; //If it under-turns look right here
 	digitalWrite(L_MOTOR_DIR_PIN, !digitalRead(L_MOTOR_DIR_PIN));
 	digitalWrite(R_MOTOR_DIR_PIN, !digitalRead(R_MOTOR_DIR_PIN));
@@ -103,7 +103,7 @@ MovingRobot::brake() {
 	analogWrite(R_MOTOR_SPEED_PIN, 0);
 	}
 
-MovingRobot::general_move(bool L_motor_direction, bool R_motor_direction, int set_speed) {
+void MovingRobot::general_move(bool L_motor_direction, bool R_motor_direction, int set_speed) {
 
 	if (R_motor_direction) digitalWrite(R_MOTOR_DIR_PIN, HIGH);
 	else digitalWrite(R_MOTOR_DIR_PIN, LOW);
@@ -113,7 +113,7 @@ MovingRobot::general_move(bool L_motor_direction, bool R_motor_direction, int se
 	analogWrite(L_MOTOR_SPEED_PIN, set_speed);
 }
 
-MovingRobot::get_heading() {
+float MovingRobot::get_heading() {
 	if (!magnetometer.activeMode){
 		magnetometer.exitStandby();
 	}
