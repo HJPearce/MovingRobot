@@ -60,7 +60,7 @@ Output order:
 	magnetometer.calibrate();
 	delay(50);
 	while (abs(start_pos - get_heading()) > 3) delay(5);
-	brake();
+	brake(140);
 	while (magnetometer.isCalibrating()) delay(3);
 	magnetometer.start();
 }
