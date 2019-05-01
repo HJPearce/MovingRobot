@@ -1,4 +1,4 @@
-﻿#include "Arduino.h"
+#include "Arduino.h"
 #include "MovingRobot.h"
 #include "MAG3110.h"
 
@@ -45,7 +45,7 @@ Output order:
 	magnetometer.initialize();
 	magnetometer.setCalMode();
 	int start_pos = get_heading();
-	general_move(true, false, 255);
+	general_move(true, false, 140);
 	magnetometer.calibrate();
 	delay(50);
 	while (abs(start_pos - get_heading()) > 3) delay(5);
@@ -84,7 +84,7 @@ MovingRobot::turnTo(int angle, byte set_speed) {
 	brake();
 }
 
-MovingRobot::turn(int angle, float setpoint = get_heading(), int set_speed = 255) {
+MovingRobot::turn(int angle, float setpoint = get_heading(), int set_speed = 150) {
 	int new_setpoint = signmod180(set_point + angle);
 	new_setpoint;
 	turnTo(new_setpoint, set_speed);
