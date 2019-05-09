@@ -97,7 +97,7 @@ void MovingRobot::moveForward(byte set_speed) {
 }
 
 void MovingRobot::brake(byte set_speed) {
-	int wait = set_speed * 0.1; //If it under-turns look right here
+	int wait = set_speed * 0.4; //If it under-turns look right here
 	digitalWrite(L_MOTOR_DIR_PIN, !digitalRead(L_MOTOR_DIR_PIN));
 	digitalWrite(R_MOTOR_DIR_PIN, !digitalRead(R_MOTOR_DIR_PIN));
 	delay(wait);
